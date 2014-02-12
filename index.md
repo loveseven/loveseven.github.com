@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 楷图
+title: LoveSeven
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
