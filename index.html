@@ -1,0 +1,22 @@
+---
+layout: default
+title: 首页
+keywords: "Seven,首页"
+description: "Seven的个人站点,记录心情与知识。"
+---
+
+{% for post in site.posts limit:3 %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<p>{{ post.content | strip_html | truncatewords: 3 }}</p>
+{{ post.date | date: "%Y年%m月%d日" }} 
+{% for tag in post.tags%}{{ tag }} {% endfor %}
+<!--
+<a href="{{ post.url }}#uyan_frame" id="uyan_count_unit">评论(0)</a>
+-->
+{% endfor %}
+
+<h3><a class="pull-right" href="/posts.html">更多日志...</a><h3>
+<!--
+<div id="uyan_newcmt_unit"></div>
+-->
+

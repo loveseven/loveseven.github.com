@@ -1,21 +1,27 @@
 ---
-layout: page
-title: Tags
-header: Posts By Tag
-group: navigation
+layout: default
+title: 标签
+keywords: "Seven,标签Tags"
+description: "标签页。"
 ---
-{% include JB/setup %}
 
-<ul class="tag_box inline">
-  {% assign tags_list = site.tags %}  
-  {% include JB/tags_list %}
-</ul>
+<div>
+  {% for tag in site.tags %}
+  <a href="#{{ tag[0] }}" {% if tag[1].size == 1 %}style="color:#888580"{% endif %}>{{ tag[0] }}({{ tag[1].size }})</a>
+  {% endfor %}
+</div>
 
-
-{% for tag in site.tags %} 
-  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}</h2>
-  <ul>
-    {% assign pages_list = tag[1] %}  
-    {% include JB/pages_list %}
-  </ul>
-{% endfor %}
+<div>
+  {% for tag in site.tags %}
+    <div id="{{ tag[0] }}"><h3>{{ tag[0] }}({{ tag[1].size }})</h3></div>
+    <ul>
+      {% for post in tag[1] %}  
+      <li>  
+      <span>{{ post.date | date:"%Y-%m-%d" }}</span>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.url }}#uyan_frame" id="uyan_count_unit">(0)</a>
+      </li>
+      {% endfor %} 
+    </ul>
+  {% endfor %}
+</div>

@@ -1,0 +1,18 @@
+---
+layout: default
+title: 日志
+keywords: "Seven,日志Posts"
+description: "Seven的日志。"
+---
+
+<table class="table">
+{% for post in site.posts %}
+<tr>
+    <td>{{ post.date | date:"%Y-%m-%d" }}</td>
+    <td><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
+<!--
+    <td><a class="pull-right" href="{{ post.url }}#uyan_frame" id="uyan_count_unit">评论(0)</a></td>
+-->
+</tr>
+{% endfor %}
+</table>
